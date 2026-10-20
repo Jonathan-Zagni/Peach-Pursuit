@@ -15,15 +15,29 @@ int main() {
 		return -1;
 	}
 	
-	float anchoCielo = texturaCielo.getSize().x;      
+	sf::Texture texturaMontania;
+	if(!texturaMontania.loadFromFile("montaña.png")){
+		return -1;
+	}
+	
+	float anchoCielo = texturaCielo.getSize().x;
+	float anchoMontanias=texturaMontania.getSize().x;
 
 	sf::Sprite cielo1(texturaCielo);
-	sf::Sprite cielo2(texturaCielo);                   
+	sf::Sprite cielo2(texturaCielo); 
 	cielo1.setPosition(0.f, 0.f);                      
-	cielo2.setPosition(anchoCielo, 0.f);              
+	cielo2.setPosition(anchoCielo, 0.f);         
+	
+	
+	sf::Sprite montania1(texturaMontania);
+	sf::Sprite montania2(texturaMontania);
+	montania1.setPosition(0.f, 0.f);
+	montania2.setPosition(anchoMontanias, 0.f);
+	
 	
 	
 	float velocidadCielo = 20.f;
+	float velocidadMontania=50.f;
 	
 	
 	
@@ -72,8 +86,22 @@ int main() {
 			cielo2.move(anchoCielo * 2.f, 0.f); 
 		}
 		
+		montania1.move(-velocidadMontania*dt, 0.f);
+		montania2.move(-velocidadMontania*dt, 0.f);
 		
-		// mover piso                                            // NUEVO
+		if(montania1.getPosition().x <= -anchoMontanias)
+		{
+			montania1.move(anchoMontanias*2.f, 0.f);
+		}
+		
+		if(montania2.getPosition().x <= -anchoMontanias)
+		{
+			montania2.move(anchoMontanias*2.f, 0.f);
+		}
+		
+		
+		
+		
 		for (sf::Sprite& tile : piso) {
 			tile.move(-velocidadPiso * dt, 0.f);
 			if (tile.getPosition().x <= -anchoTile)
@@ -81,12 +109,16 @@ int main() {
 		}
 		
 		
-		ventana.clear(sf::Color::Black);   // borra lo anterior
-		ventana.draw(cielo1);// acá va todo lo que dibujás
-		ventana.draw(cielo2);                          // NUEVO
+		 
+		ventana.draw(cielo1);
+		ventana.draw(cielo2);  
+		
+		ventana.draw(montania1);
+		ventana.draw(montania2);
+		
 		for (sf::Sprite& tile : piso)
 			ventana.draw(tile);
-		ventana.display();                 // muestra lo dibujado
+		ventana.display();                 
 	}
 	return 0;
 }
