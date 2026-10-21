@@ -1,0 +1,17 @@
+
+# Archivos compilados de C++
+*.o
+*.obj
+*.exe
+*.pdb
+
+# Bibliotecas compiladas
+*.dll
+*.so
+*.a
+*.lib
+
+# Archivos temporales y copias de respaldo
+*.tmp
+*.bak
+*~
