@@ -1,7 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "Personaje.h"
 
 int main() {
+	Personaje princes;
 	sf::RenderWindow ventana(sf::VideoMode(1280, 720), "La princesa");
 	ventana.setFramerateLimit(60);
 	
@@ -115,6 +117,8 @@ int main() {
 		
 		ventana.draw(montania1);
 		ventana.draw(montania2);
+		
+		ventana.draw(princes);
 		
 		for (sf::Sprite& tile : piso)
 			ventana.draw(tile);
