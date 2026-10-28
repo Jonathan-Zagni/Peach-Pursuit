@@ -5,7 +5,9 @@ class Personaje: public sf::Drawable{
 private:
 	sf::Texture _texture;
 	sf::Sprite _sprite;
+	
 	int _velocity;
+	
 public:
 	Personaje();
 	
