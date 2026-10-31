@@ -6,10 +6,10 @@ int main() {
 	sf::RenderWindow ventana(sf::VideoMode(1280, 720), "La princesa");
 	ventana.setFramerateLimit(60);
 	
-	Personaje princes;
+	Piso piso("img/suelo.png", 200.f, 180.f, ventana.getSize());
+	Personaje princes(525.f, piso.getY());
 	Fondo cielo("img/cielo.png", 20.f);
 	Fondo montania("img/montaña.png", 50.f);
-	Piso piso("img/suelo.png", 200.f, 180.f, ventana.getSize());
 	
 	while (ventana.isOpen()) {
 		sf::Event evento;
@@ -21,6 +21,7 @@ int main() {
 		piso.actualizar();
 		cielo.actualizar();
 		montania.actualizar();
+		princes.actualizar();
 		
 		ventana.draw(cielo);
 		ventana.draw(montania);
