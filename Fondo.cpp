@@ -7,7 +7,7 @@ Fondo::Fondo(std::string name, float vel) {
 }
 
 void Fondo::cargar(){
-	if(!_textura.loadFromFile(_nombre + ".png")) return;
+	if(!_textura.loadFromFile(_nombre)) return;
 	
 	_ancho = _textura.getSize().x;
 	

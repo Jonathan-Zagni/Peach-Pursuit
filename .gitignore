@@ -15,3 +15,6 @@
 *.tmp
 *.bak
 *~
+
+# Instrucciones locales del agente (no versionar)
+AGENTS.md
