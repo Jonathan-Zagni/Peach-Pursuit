@@ -14,8 +14,8 @@ int main() {
 	while (ventana.isOpen()) {
 		sf::Event evento;
 		while (ventana.pollEvent(evento)) {
-			if (evento.type == sf::Event::Closed)
-				ventana.close();
+			if (evento.type == sf::Event::Closed) ventana.close();
+			if(evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::Space) princes.saltar();
 		}
 		
 		piso.actualizar();

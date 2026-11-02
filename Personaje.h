@@ -3,7 +3,8 @@
 
 enum class Princesa{
 	CORRIENDO1,
-	CORRIENDO2
+	CORRIENDO2,
+	SALTA
 };
 
 class Personaje: public sf::Drawable{
@@ -15,10 +16,17 @@ private:
 	Princesa _estado = Princesa::CORRIENDO1;
 	float _tiempoFrame = 0.15f;
 	float _acumulado = 0.f;
+	float _velocity = 0.f;
+	float _gravity = 2000.f;
+	float _impulso = 700.f;
+	float _ySuelo;
+	bool _enSuelo;
+	
 	
 public:
 	Personaje(float x, float yPies);
 	
+	void saltar();
 	void actualizar();
 	float getAlto() const;
 	void pararseEn(float yPies);
