@@ -2,6 +2,7 @@
 #include "Personaje.h"
 #include "Fondo.h"
 #include "Piso.h"
+#include "Mono.h"
 int main() {
 	sf::RenderWindow ventana(sf::VideoMode(1280, 720), "La princesa");
 	ventana.setFramerateLimit(60);
@@ -9,7 +10,8 @@ int main() {
 	Piso piso("img/suelo.png", 200.f, 180.f, ventana.getSize());
 	Personaje princes(525.f, piso.getY());
 	Fondo cielo("img/cielo.png", 20.f);
-	Fondo montania("img/montaña.png", 50.f);
+	Fondo montania("img/montania.png", 50.f);
+	Mono mono(50.f, piso.getY());
 	
 	while (ventana.isOpen()) {
 		sf::Event evento;
@@ -22,10 +24,12 @@ int main() {
 		cielo.actualizar();
 		montania.actualizar();
 		princes.actualizar();
+		mono.actualizar();
 		
 		ventana.draw(cielo);
 		ventana.draw(montania);
 		ventana.draw(princes);
+		ventana.draw(mono);
 		
 		ventana.draw(piso);
 		ventana.display();                 

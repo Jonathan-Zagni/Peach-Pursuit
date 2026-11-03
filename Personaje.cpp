@@ -1,10 +1,10 @@
 #include "Personaje.h"
 
 Personaje::Personaje(float x, float yPies) {
+	cargar();
 	actualizarAnimacion();
 	_sprite.setOrigin(_sprite.getTextureRect().width / 2.f, static_cast<float>(_sprite.getTextureRect().height));
 	_sprite.setPosition(x, yPies);
-	cargar();
 	_ySuelo = yPies;
 	_enSuelo = true;
 }
