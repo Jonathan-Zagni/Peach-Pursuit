@@ -18,7 +18,7 @@ private:
 	float _acumulado = 0.f;
 	float _velocity = 0.f;
 	float _gravity = 2000.f;
-	float _impulso = 700.f;
+	float _impulso = 1200.f;
 	float _ySuelo;
 	bool _enSuelo;
 	
