@@ -3,6 +3,8 @@
 #include "Fondo.h"
 #include "Piso.h"
 #include "Mono.h"
+#include "Obstaculo.h"
+
 int main() {
 	sf::RenderWindow ventana(sf::VideoMode(1280, 720), "La princesa");
 	ventana.setFramerateLimit(60);
@@ -12,6 +14,7 @@ int main() {
 	Fondo cielo("img/cielo.png", 20.f);
 	Fondo montania("img/montania.png", 50.f);
 	Mono mono(50.f, piso.getY());
+	Obstaculo hongo(piso.getY());
 	
 	while (ventana.isOpen()) {
 		sf::Event evento;
@@ -25,11 +28,13 @@ int main() {
 		montania.actualizar();
 		princes.actualizar();
 		mono.actualizar();
+		hongo.actualizar();
 		
 		ventana.draw(cielo);
 		ventana.draw(montania);
 		ventana.draw(princes);
 		ventana.draw(mono);
+		ventana.draw(hongo);
 		
 		ventana.draw(piso);
 		ventana.display();                 
