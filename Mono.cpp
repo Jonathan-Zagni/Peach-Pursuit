@@ -35,6 +35,9 @@ void Mono::actualizar(){
 	}
 }
 
+sf::FloatRect Mono::getBounds() const{
+	return _sprite.getGlobalBounds();
+}
 void Mono::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 	target.draw(_sprite, states);
 }

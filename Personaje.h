@@ -1,13 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "Colision.h"
 enum class Princesa{
 	CORRIENDO1,
 	CORRIENDO2,
 	SALTA
 };
 
-class Personaje: public sf::Drawable{
+class Personaje: public sf::Drawable, public Colisionable{
 private:
 	sf::Texture _texture;
 	sf::Sprite _sprite;
@@ -31,7 +31,7 @@ public:
 	float getAlto() const;
 	void pararseEn(float yPies);
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
+	sf::FloatRect getBounds() const override;
 private:
 	void cargar();
 	void actualizarAnimacion();

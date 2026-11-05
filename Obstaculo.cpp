@@ -20,6 +20,10 @@ void Obstaculo::actualizar(){
 	_sprite.move(-_velocity, 0.f);
 }
 
+sf::FloatRect Obstaculo::getBounds() const{
+	return _sprite.getGlobalBounds();
+}
+
 void Obstaculo::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 	target.draw(_sprite, states);
 }

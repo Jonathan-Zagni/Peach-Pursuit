@@ -2,8 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-
-class Piso : public sf::Drawable {
+class Piso : public sf::Drawable{
 private:
 	sf::Texture _textura;
 	std::vector<sf::Sprite> _tiles;

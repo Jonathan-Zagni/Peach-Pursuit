@@ -45,6 +45,7 @@ float Piso::getAlto() const{
 	return _altoTile;
 }
 
+
 void Piso::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 	for (const sf::Sprite& tile : _tiles)
 		target.draw(tile, states);

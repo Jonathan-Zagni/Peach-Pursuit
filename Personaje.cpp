@@ -64,6 +64,10 @@ void Personaje::pararseEn(float yPies) {
 	_enSuelo = true;
 }
 
+sf::FloatRect Personaje::getBounds() const{
+	return _sprite.getGlobalBounds();
+}
+
 void Personaje::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 	target.draw(_sprite, states);
 }
