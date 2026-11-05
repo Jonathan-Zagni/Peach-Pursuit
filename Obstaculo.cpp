@@ -3,7 +3,7 @@
 Obstaculo::Obstaculo(float piso) {
 	cargar();
 	_sprite.setOrigin(_sprite.getTextureRect().width / 2.f, static_cast<float>(_sprite.getTextureRect().height));
-	_sprite.setPosition(1350, piso);
+	_posY = piso;
 }
 
 void Obstaculo::cargar(){
@@ -15,6 +15,9 @@ void Obstaculo::cargar(){
 	
 }
 
+void Obstaculo::spawn(){
+	_sprite.setPosition(1350, _posY);
+}
 
 void Obstaculo::actualizar(){
 	_sprite.move(-_velocity, 0.f);
@@ -22,6 +25,10 @@ void Obstaculo::actualizar(){
 
 sf::FloatRect Obstaculo::getBounds() const{
 	return _sprite.getGlobalBounds();
+}
+
+float Obstaculo::getPosX(){
+	return _sprite.getPosition().x;
 }
 
 void Obstaculo::draw(sf::RenderTarget& target, sf::RenderStates states) const{

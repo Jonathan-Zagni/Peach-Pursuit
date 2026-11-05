@@ -5,6 +5,8 @@ Mono::Mono(float x, float yPies) {
 	actualizarAnimacion();
 	_sprite.setOrigin(_sprite.getTextureRect().width / 2.f, static_cast<float>(_sprite.getTextureRect().height));
 	_sprite.setPosition(x, yPies);
+	_posX = x;
+	_posY = yPies;
 }
 
 void Mono::cargar(){
@@ -33,6 +35,14 @@ void Mono::actualizar(){
 		_estado = (_estado == Estado::CORRIENDO1) ? Estado::CORRIENDO2 : Estado::CORRIENDO1;
 		actualizarAnimacion();
 	}
+}
+
+void Mono::acercar(){
+	if(_sprite.getPosition().x <= _posX + 158.0f){
+		_sprite.move(2.0f, 0.f);
+		_posX +=158.f;
+	}
+
 }
 
 sf::FloatRect Mono::getBounds() const{

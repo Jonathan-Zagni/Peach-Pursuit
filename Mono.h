@@ -15,9 +15,13 @@ private:
 	Estado _estado = Estado::CORRIENDO1;
 	
 	float _acumulado = 0.f;
+	float _posX;
+	float _posY;
 	
 public:
 	Mono(float x, float yPies);
+	
+	void acercar();
 	void cargar();
 	void actualizar();
 	void actualizarAnimacion();
