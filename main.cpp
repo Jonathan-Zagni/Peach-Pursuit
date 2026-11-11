@@ -23,6 +23,18 @@ int main() {
 			if(evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::Space) princes.saltar();
 		}
 		
+		if(princes.isColision(hongo)){
+			mono.acercar();
+		}
+		
+		if(mono.isColision(hongo)){
+			mono.saltar();
+		}
+		
+		if(hongo.getPosX() <= 0.f){
+			hongo.spawn();
+		}
+		
 		piso.actualizar();
 		cielo.actualizar();
 		montania.actualizar();
